@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.responses import FileResponse 
 
 app = FastAPI()
 
@@ -12,6 +13,10 @@ app.add_middleware(
  allow_headers=["*"],
 )
 
-@app.get("/api/test")
-async def test():
+@app.get("/")
+async def root():
     return {"message":"Hello World"}
+
+@app.get("/home")
+async def home():
+    return FileResponse('ui/index.html')
