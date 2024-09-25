@@ -19,4 +19,4 @@ async def root():
 
 @app.get("/home")
 async def home():
-    return FileResponse('ui/index.html')
+    return FileResponse("index.html")
